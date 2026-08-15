@@ -38,7 +38,7 @@
       text-shadow: 0 1px 4px rgba(255,255,255,0.8);
     }
 
-    /* ২৪ ও ২৫ সূর্যমুখীর বিদায় অ্যানিমেশন */
+    /* ২৪ ও ২৫ সূর্যমুখীর বিদায় অ্যানিমেশন */
     .sunflower-duo {
       display: flex; align-items: center; justify-content: center;
       gap: clamp(20px, 6vw, 60px);
@@ -56,13 +56,18 @@
       filter: drop-shadow(0 10px 20px rgba(180, 80, 20, 0.25));
     }
 
-    /* ২৪-এর হাত নাড়া (Bye Bye) */
+    /* ২৪-এর হাত নাড়া (Bye Bye Waving Hand) */
     .flower-24 {
       animation: floatLeft 3s ease-in-out infinite alternate;
     }
-    .wave-arm {
-      transform-origin: 30px 60px;
-      animation: armWave 1s ease-in-out infinite alternate;
+    .waving-arm-group {
+      transform-origin: -40px 10px;
+      animation: naturalWave 1.1s ease-in-out infinite alternate;
+    }
+
+    @keyframes naturalWave {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(28deg); }
     }
 
     /* ২৫-এর সোনালী গ্লো */
@@ -83,10 +88,6 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
-    @keyframes armWave {
-      0% { transform: rotate(-15deg); }
-      100% { transform: rotate(35deg); }
-    }
     @keyframes floatLeft {
       0% { transform: translateY(0) rotate(-3deg); }
       100% { transform: translateY(-8px) rotate(3deg); }
@@ -154,32 +155,57 @@
     <h1 class="title">🌻 The Final Countdown to 25 🌻</h1>
 
     <div class="sunflower-duo">
-      <!-- ২৪ সূর্যমুখী (বিদায় জানাচ্ছে) -->
+      <!-- ২৪ সূর্যমুখী (হাত দিয়ে বিদায় জানাচ্ছে) -->
       <div class="flower-wrap flower-24">
         <div class="bubble">Bye Bye 24! 👋</div>
-        <svg class="flower-svg" viewBox="0 0 160 160">
-          <g transform="translate(80,80)">
-            <!-- পাপড়ি -->
+        <svg class="flower-svg" viewBox="0 0 180 180" style="overflow: visible;">
+          <g transform="translate(90,90)">
+            
+            <!-- কার্টুন হাত -->
+            <g class="waving-arm-group">
+              <path d="M-36,12 C-55,10 -72,-5 -68,-32" fill="none" stroke="#388e3c" stroke-width="7" stroke-linecap="round" />
+              <ellipse cx="-68" cy="-35" rx="9" ry="14" fill="#4caf50" transform="rotate(-20 -68 -35)" />
+              <ellipse cx="-60" cy="-32" rx="4" ry="7" fill="#4caf50" transform="rotate(35 -60 -32)" />
+            </g>
+
+            <!-- পাপড়ি স্তর -->
             <g fill="#ffa000">
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(0)" />
-              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(45)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(30)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(60)" />
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(90)" />
-              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(135)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(120)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(150)" />
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(180)" />
-              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(225)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(210)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(240)" />
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(270)" />
-              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(315)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(300)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(330)" />
             </g>
-            <circle r="34" fill="#4e2619" stroke="#ffb300" stroke-width="2" />
-            <text y="10" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="28" fill="#ffd54f">24</text>
-            <!-- হাত নাড়ার ডাল -->
-            <path class="wave-arm" d="M-30,5 Q-55,-10 -55,-35" fill="none" stroke="#2e7d32" stroke-width="5" stroke-linecap="round" />
-            <ellipse cx="-55" cy="-35" rx="5" ry="8" fill="#4caf50" transform="rotate(30 -55 -35)" />
+            
+            <g fill="#ffd54f">
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(15)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(45)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(75)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(105)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(135)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(165)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(195)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(225)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(255)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(285)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(315)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(345)" />
+            </g>
+
+            <circle r="36" fill="#4e2619" stroke="#ffb300" stroke-width="2.5" />
+            <text y="11" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="#ffd54f">24</text>
           </g>
         </svg>
       </div>
 
-      <!-- ২৫ সূর্যমুখী (ওয়েলকাম জানাচ্ছে) -->
+      <!-- ২৫ সূর্যমুখী -->
       <div class="flower-wrap flower-25">
         <div class="bubble">Welcome 25! ✨</div>
         <svg class="flower-svg glow-pulse" viewBox="0 0 160 160">

@@ -282,9 +282,10 @@ body {
   100% { transform: translateY(4px); }
 }
 
+/* ডেস্কটপ ও বড় স্ক্রিনের জন্য পজিশন */
 .cartoon__camera {
   position: absolute;
-  top: clamp(4%, 7vh, 10%);
+  top: 12%;
   left: 0;
   right: 0;
   z-index: 2;
@@ -338,7 +339,7 @@ body {
 }
 
 /* ============================================================
-   ACT 4 — FULLY RESPONSIVE WISH CARD (Mobile/Tab/PC)
+   ACT 4 — FULLY RESPONSIVE WISH CARD
    ============================================================ */
 .wish {
   position: absolute;
@@ -460,6 +461,27 @@ body {
    MOBILE & TABLET RESPONSIVE OVERRIDES
    ============================================================ */
 @media (max-width: 768px) {
+  /* মোবাইলে লেখাটি নিচে নামানোর রুল */
+  .cartoon__camera {
+    top: 22% !important;
+  }
+
+  .kEyebrow {
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .hl__word {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .kSub {
+    font-size: 13.5px;
+    margin-top: 8px;
+    max-width: 85%;
+  }
+
   .wish {
     left: 5%;
     right: 5%;

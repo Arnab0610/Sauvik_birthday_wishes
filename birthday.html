@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Happy Birthday ♥ — a little film</title>
+  <meta name="description" content="A cinematic birthday film in four acts: a beating heart you open with a tap, a rush of colour, a kinetic wish, and a tree that blooms into a heart of petals." />
+  <meta name="theme-color" content="#f7e7dc" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&display=swap" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="./birthday.css" />
+</head>
+<body>
+  <main class="scene">
+
+    <!-- The tree world (Act 4). One canvas; it stays transparent until the
+         intro hands off, then it draws its own warm sky + blossom tree. -->
+    <canvas id="tree" class="tree" aria-label="A blossom tree grows and blooms into a heart made of petals" role="img"></canvas>
+
+    <!-- ACT 1 — THE INVITATION ------------------------------------------------
+         A single beating heart on a warm field. It is the only thing the
+         visitor has to do: tap it. Real <button> so it is tappable + keyboard
+         focusable; everything decorative around it is aria-hidden. -->
+    <section class="hero" id="hero" aria-label="Draw the bow to open your card">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__motes" id="motes" aria-hidden="true"></div>
+
+      <!-- উপরের সুন্দর ও আকর্ষণীয় টেক্সট অপশন -->
+<p class="hero__eyebrow" id="eyebrow">"A Special Chapter Begins... 25 ✨"</p>
+    
+
+
+              <!-- THE TARGET — Premium Graphic 24 Badge -->
+      <!-- THE TARGET — Sunflower Vector Badge with '24' -->
+<div class="targetWrap" aria-hidden="true">
+  <div class="target" id="target">
+    <span class="heart__glow" aria-hidden="true"></span>
+    <span class="target__heart" id="targetHeart">
+      <svg class="sunflower__svg" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <!-- Sunflower Petals Gradient (Golden Yellow to Deep Amber) -->
+          <linearGradient id="petalGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff176" />
+            <stop offset="60%" stop-color="#fbc02d" />
+            <stop offset="100%" stop-color="#e65100" />
+          </linearGradient>
+
+          <linearGradient id="petalGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffe082" />
+            <stop offset="60%" stop-color="#ffa000" />
+            <stop offset="100%" stop-color="#bf360c" />
+          </linearGradient>
+
+          <!-- Center Disc Gradient (Warm Rich Brown/Chocolate) -->
+          <radialGradient id="centerGrad" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#6d4c41" />
+            <stop offset="70%" stop-color="#3e2723" />
+            <stop offset="100%" stop-color="#1f100a" />
+          </radialGradient>
+
+          <!-- Golden Text Gradient for 24 -->
+          <linearGradient id="textGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff9c4" />
+            <stop offset="50%" stop-color="#ffe082" />
+            <stop offset="100%" stop-color="#ffb300" />
+          </linearGradient>
+
+          <!-- Single Petal Definition -->
+          <path id="petal" d="M100 12 C91 38, 93 68, 100 80 C107 68, 109 38, 100 12 Z" />
+        </defs>
+
+        <!-- Layer 1: Outer/Back Petals (Rotated at 22.5 deg offsets) -->
+        <g fill="url(#petalGrad2)" opacity="0.95">
+          <use href="#petal" transform="rotate(15 100 100)" />
+          <use href="#petal" transform="rotate(45 100 100)" />
+          <use href="#petal" transform="rotate(75 100 100)" />
+          <use href="#petal" transform="rotate(105 100 100)" />
+          <use href="#petal" transform="rotate(135 100 100)" />
+          <use href="#petal" transform="rotate(165 100 100)" />
+          <use href="#petal" transform="rotate(195 100 100)" />
+          <use href="#petal" transform="rotate(225 100 100)" />
+          <use href="#petal" transform="rotate(255 100 100)" />
+          <use href="#petal" transform="rotate(285 100 100)" />
+          <use href="#petal" transform="rotate(315 100 100)" />
+          <use href="#petal" transform="rotate(345 100 100)" />
+        </g>
+
+        <!-- Layer 2: Front/Main Petals -->
+        <g fill="url(#petalGrad1)">
+          <use href="#petal" transform="rotate(0 100 100)" />
+          <use href="#petal" transform="rotate(30 100 100)" />
+          <use href="#petal" transform="rotate(60 100 100)" />
+          <use href="#petal" transform="rotate(90 100 100)" />
+          <use href="#petal" transform="rotate(120 100 100)" />
+          <use href="#petal" transform="rotate(150 100 100)" />
+          <use href="#petal" transform="rotate(180 100 100)" />
+          <use href="#petal" transform="rotate(210 100 100)" />
+          <use href="#petal" transform="rotate(240 100 100)" />
+          <use href="#petal" transform="rotate(270 100 100)" />
+          <use href="#petal" transform="rotate(300 100 100)" />
+          <use href="#petal" transform="rotate(330 100 100)" />
+        </g>
+
+        <!-- Sunflower Center Core -->
+        <circle cx="100" cy="100" r="46" fill="url(#centerGrad)" stroke="#ffb300" stroke-width="1.8" stroke-dasharray="3 3.5" />
+        
+        <!-- Texture Ring -->
+        <circle cx="100" cy="100" r="41" fill="none" stroke="rgba(255,183,77,0.35)" stroke-width="1.5" stroke-dasharray="2 3" />
+
+        <!-- 24 Typography -->
+        <text x="100" y="117" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-weight="900" font-size="52" fill="url(#textGold)" letter-spacing="-0.5px">25</text>
+      </svg>
+    </span>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="targetWrap" aria-hidden="true">
+        <div class="target" id="target">
+          <span class="heart__glow" aria-hidden="true"></span>
+          <span class="target__heart" id="targetHeart">
+            <svg class="heart__svg" viewBox="0 0 100 92" aria-hidden="true">
+              <defs>
+                <radialGradient id="hg" cx="38%" cy="30%" r="80%">
+                  <stop offset="0%"  stop-color="#ffd9e4" />
+                  <stop offset="42%" stop-color="#ff6f97" />
+                  <stop offset="82%" stop-color="#d81e57" />
+                  <stop offset="100%" stop-color="#9d0f3e" />
+                </radialGradient>
+                <linearGradient id="hsheen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="rgba(255,255,255,.85)" />
+                  <stop offset="34%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M50 86.5C26 68 10.5 53.6 10.5 34.6 10.5 20.4 21 11 33.2 11c8.6 0 14.2 4.7 16.8 11.4C52.6 15.7 58.2 11 66.8 11 79 11 89.5 20.4 89.5 34.6 89.5 53.6 74 68 50 86.5Z" fill="url(#hg)" />
+              <path d="M50 86.5C26 68 10.5 53.6 10.5 34.6 10.5 20.4 21 11 33.2 11c8.6 0 14.2 4.7 16.8 11.4C52.6 15.7 58.2 11 66.8 11 79 11 89.5 20.4 89.5 34.6 89.5 53.6 74 68 50 86.5Z" fill="url(#hsheen)" opacity=".7" />
+              <ellipse cx="34" cy="30" rx="8.5" ry="5.4" fill="#fff" opacity=".72" style="mix-blend-mode:screen" />
+            </svg>
+          </span>
+
+        </div>
+      </div> -->
+
+      <!-- THE BOW + ARROW — draw the string back, release to fire. The rig is
+           placed lower-left and rotated by JS to aim at the heart, so the shot
+           travels on a diagonal. A real control: role=button + keyboard drag. -->
+      <div class="archery" id="archery" role="button" tabindex="0"
+           aria-label="Draw the bow and release to send the arrow to the heart">
+
+          <!-- aim line, inside the rig so it points straight at the heart -->
+          <div class="aim" id="aim" aria-hidden="true"></div>
+
+          <!-- realistic recurve bow: wooden limbs, leather grip, a live string -->
+          <svg class="bow" id="bow" viewBox="0 0 460 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="limb" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0"   stop-color="#4a2a1a" />
+                <stop offset=".18" stop-color="#6b3f24" />
+                <stop offset=".5"  stop-color="#8a5127" />
+                <stop offset=".82" stop-color="#6b3f24" />
+                <stop offset="1"   stop-color="#4a2a1a" />
+              </linearGradient>
+              <linearGradient id="limbHi" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,214,160,.8)" />
+                <stop offset="1" stop-color="rgba(255,214,160,0)" />
+              </linearGradient>
+              <linearGradient id="grip" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#2a1a10" />
+                <stop offset=".5" stop-color="#5a3822" />
+                <stop offset="1" stop-color="#2a1a10" />
+              </linearGradient>
+            </defs>
+            <!-- limb body (taper faked with two stacked strokes) -->
+            <path class="bow__limb" d="M34 96 C 118 168, 168 240, 230 252 C 292 240, 342 168, 426 96"
+                  fill="none" stroke="url(#limb)" stroke-width="13" stroke-linecap="round" />
+            <path class="bow__limbHi" d="M34 96 C 118 168, 168 240, 230 252 C 292 240, 342 168, 426 96"
+                  fill="none" stroke="url(#limbHi)" stroke-width="3" stroke-linecap="round" opacity=".7" />
+            <!-- recurve tip hooks -->
+            <path d="M34 96 C 22 82, 26 70, 40 66" fill="none" stroke="url(#limb)" stroke-width="8" stroke-linecap="round" />
+            <path d="M426 96 C 438 82, 434 70, 420 66" fill="none" stroke="url(#limb)" stroke-width="8" stroke-linecap="round" />
+            <!-- leather grip over the belly -->
+            <rect x="216" y="206" width="28" height="70" rx="9" fill="url(#grip)" />
+            <path d="M219 220h22 M219 236h22 M219 252h22" stroke="rgba(0,0,0,.35)" stroke-width="2" />
+            <!-- the string: two segments meeting at the nock (JS animates the nock).
+                 A warm taupe so the taut string actually reads against the cream. -->
+            <line class="bow__str" id="strL" x1="40" y1="70" x2="230" y2="96" stroke="#9a8068" stroke-width="2.2" stroke-linecap="round" />
+            <line class="bow__str" id="strR" x1="420" y1="70" x2="230" y2="96" stroke="#9a8068" stroke-width="2.2" stroke-linecap="round" />
+            <circle class="bow__serving" id="serving" cx="230" cy="96" r="4.5" fill="#6f5137" />
+          </svg>
+
+          <!-- the arrow: winged golden heart tip (Cupid), gold feather fletching -->
+          <svg class="arrow" id="arrow" viewBox="0 0 64 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="shaft" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#4a2c14" />
+                <stop offset=".5" stop-color="#8a5a2c" />
+                <stop offset="1" stop-color="#3e2410" />
+              </linearGradient>
+              <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffe38c" />
+                <stop offset=".45" stop-color="#f4a626" />
+                <stop offset="1" stop-color="#a85f0e" />
+              </linearGradient>
+              <linearGradient id="feath" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff7f9c" />
+                <stop offset=".5" stop-color="#e6396a" />
+                <stop offset="1" stop-color="#a8154a" />
+              </linearGradient>
+              <linearGradient id="wing" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" />
+                <stop offset="1" stop-color="#ffe0c4" />
+              </linearGradient>
+            </defs>
+
+            <!-- shaft (dark wood so it reads against the cream) -->
+            <rect x="29.4" y="30" width="5.2" height="168" rx="2.6" fill="url(#shaft)" />
+
+            <!-- angel wings flanking the heart tip -->
+            <g class="arrow__wings">
+              <path class="wingL" d="M31 30 C 10 16, 2 20, 4 34 C 12 30, 20 32, 31 40 Z" fill="url(#wing)" stroke="rgba(196,132,58,.72)" stroke-width="1.2"/>
+              <path class="wingR" d="M33 30 C 54 16, 62 20, 60 34 C 52 30, 44 32, 33 40 Z" fill="url(#wing)" stroke="rgba(196,132,58,.72)" stroke-width="1.2"/>
+            </g>
+
+            <!-- golden heart arrowhead (Cupid's love arrow) -->
+            <path class="arrow__head" d="M32 12 C 30 7, 22 6.5, 21.5 13 C 21 18, 27 22, 32 27 C 37 22, 43 18, 42.5 13 C 42 6.5, 34 7, 32 12 Z" fill="url(#gold)" stroke="#a5701a" stroke-width=".8" />
+            <ellipse cx="27" cy="13" rx="2.6" ry="1.7" fill="#fff" opacity=".8" style="mix-blend-mode:screen" />
+
+            <!-- gold feather fletching -->
+            <g class="arrow__fletch">
+              <path d="M32 150 C 16 156, 10 178, 15 200 C 24 194, 30 184, 32 176 Z" fill="url(#feath)" />
+              <path d="M32 150 C 48 156, 54 178, 49 200 C 40 194, 34 184, 32 176 Z" fill="url(#feath)" opacity=".92" />
+              <path d="M28 160l4 3 M26 170l6 3 M25 180l7 3" stroke="rgba(130,12,48,.45)" stroke-width="1" />
+              <path d="M36 160l-4 3 M38 170l-6 3 M39 180l-7 3" stroke="rgba(130,12,48,.45)" stroke-width="1" />
+            </g>
+            <!-- nock -->
+            <path d="M29 200 L32 205 L35 200" fill="none" stroke="#c9a25a" stroke-width="2" stroke-linecap="round"/>
+            <!-- invisible tip marker: JS measures it to land the head on the heart -->
+            <circle id="tip" cx="32" cy="9" r="0.6" fill="none" />
+          </svg>
+      </div>
+
+      <p class="hero__hint" id="hint">pull &amp; release</p>
+    </section>
+
+    <!-- ACT 2 — THE FLOOD -----------------------------------------------------
+         The heart bursts into this circle at its landing point, and it swallows
+         the frame in rose. Same trick as the intro dot: no cross-fade anywhere,
+         the colour just arrives. -->
+    <div class="flood" id="flood" aria-hidden="true"></div>
+
+    <!-- ACT 3 — THE WISH (kinetic type on the flood) --------------------------
+         Lives inside the flood's own colour, revealed by it. Every glyph hinges
+         up out of its mask — nothing fades. -->
+    <!-- <div class="field" id="field" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+      <div class="fgrid" id="fgrid"></div>
+      <div class="fvignette"></div>
+
+      <div class="camera" id="camera">
+        <p class="kEyebrow" id="kEyebrow">make a wish&hellip;</p>
+        <h2 class="headline" id="headline">
+          <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine1">Happy</span></span></span>
+          <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine2">Birthday</span></span></span>
+        </h2>
+        <svg class="uline" id="uline" viewBox="0 0 300 26" fill="none" aria-hidden="true">
+          <path class="uline__path" d="M8 16C56 7 132 4 178 6c30 1 78 5 114 12-40 3-108 4-176 3"
+                stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <p class="kSub" id="kSub">to someone worth celebrating</p>
+      </div>
+
+      <div class="bar bar--top" id="barTop"></div>
+      <div class="bar bar--bot" id="barBot"></div>
+    </div> -->
+    
+
+
+    <!-- ACT 3 — CARTOON NATURE & FRIENDS CAKE CUTTING SCENE -->
+<div class="field" id="field" aria-hidden="true">
+  
+  <!-- কার্টুন ব্যাকগ্রাউন্ড ও সিনারি SVG -->
+  <svg class="cartoon__world" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- কার্টুন নীল ও সোনালী আকাশ -->
+      <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#81d4fa" />
+        <stop offset="60%" stop-color="#ffe082" />
+        <stop offset="100%" stop-color="#ffcc80" />
+      </linearGradient>
+
+      <!-- সবুজ ঘাসের মাঠ -->
+      <linearGradient id="hillGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#aed581" />
+        <stop offset="100%" stop-color="#7cb342" />
+      </linearGradient>
+      <linearGradient id="hillGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#8bc34a" />
+        <stop offset="100%" stop-color="#558b2f" />
+      </linearGradient>
+    </defs>
+
+    <!-- ১. আকাশ -->
+    <rect width="1000" height="600" fill="url(#skyGrad)" />
+
+    <!-- ২. মেঘ (Clouds) -->
+    <g class="cartoon__clouds" fill="#ffffff" opacity="0.85">
+      <path d="M120,90 Q140,60 170,70 Q200,50 230,80 Q250,75 260,95 Q260,110 120,110 Z" />
+      <path d="M720,110 Q740,80 770,90 Q800,70 830,100 Q850,95 860,115 Q860,130 720,130 Z" />
+    </g>
+
+    <!-- ৩. আকাশে উড়ে যাওয়া পাখি (Flying Birds) -->
+    <g class="cartoon__birds">
+      <path class="cbird cbird--1" d="M180,120 Q195,100 210,120 Q225,100 240,120 Q210,112 180,120 Z" fill="#37474f" />
+      <path class="cbird cbird--2" d="M260,90 Q272,75 285,90 Q298,75 310,90 Q285,84 260,90 Z" fill="#455a64" />
+      <path class="cbird cbird--3" d="M340,135 Q350,122 362,135 Q375,122 388,135 Q362,129 340,135 Z" fill="#37474f" />
+    </g>
+
+    <!-- ৪. রঙিন পার্টি পতাকা (Bunting Flags) -->
+    <g class="party__flags">
+      <path d="M50,40 Q500,120 950,40" fill="none" stroke="#795548" stroke-width="2.5" stroke-dasharray="4 2" />
+      <!-- ফ্ল্যাগ ট্রায়াঙ্গেল -->
+      <polygon points="120,53 145,95 170,59" fill="#ff5252" />
+      <polygon points="200,64 225,105 250,71" fill="#ffd740" />
+      <polygon points="280,76 305,116 330,83" fill="#69f0ae" />
+      <polygon points="360,87 385,125 410,93" fill="#40c4ff" />
+      <polygon points="440,94 465,130 490,96" fill="#ff4081" />
+      <polygon points="520,96 545,130 570,94" fill="#ffd740" />
+      <polygon points="600,92 625,125 650,86" fill="#69f0ae" />
+      <polygon points="680,82 705,116 730,75" fill="#ff5252" />
+      <polygon points="760,70 785,104 810,63" fill="#40c4ff" />
+      <polygon points="840,58 865,92 890,51" fill="#e040fb" />
+    </g>
+
+    <!-- ৫. সবুজ পাহাড় ও লন (Hills) -->
+    <path d="M0,380 Q250,300 500,360 T1000,340 L1000,600 L0,600 Z" fill="url(#hillGrad1)" />
+    <path d="M0,430 Q300,370 650,420 T1000,400 L1000,600 L0,600 Z" fill="url(#hillGrad2)" />
+
+    <!-- ৬. কার্টুন বাড়ি (Village Cottages) -->
+    <!-- বাম পাশের বাড়ি -->
+    <g class="cottage cottage--left">
+      <polygon points="120,330 180,270 240,330" fill="#e53935" stroke="#b71c1c" stroke-width="3" />
+      <rect x="135" y="330" width="90" height="75" fill="#fff8e1" stroke="#8d6e63" stroke-width="3" />
+      <rect x="170" y="360" width="22" height="45" fill="#6d4c41" rx="3" />
+      <rect x="145" y="342" width="18" height="18" fill="#81d4fa" stroke="#4fc3f7" stroke-width="2" rx="2" />
+      <rect x="200" y="342" width="18" height="18" fill="#81d4fa" stroke="#4fc3f7" stroke-width="2" rx="2" />
+      <!-- চিমনি ও ধোঁয়া -->
+      <rect x="210" y="280" width="14" height="25" fill="#d32f2f" />
+    </g>
+
+    <!-- ডান পাশের বাড়ি -->
+    <g class="cottage cottage--right">
+      <polygon points="780,310 840,250 900,310" fill="#fb8c00" stroke="#e65100" stroke-width="3" />
+      <rect x="795" y="310" width="90" height="75" fill="#fff3e0" stroke="#8d6e63" stroke-width="3" />
+      <rect x="830" y="340" width="22" height="45" fill="#5d4037" rx="3" />
+      <circle cx="840" cy="285" r="10" fill="#ffe082" stroke="#ffb300" stroke-width="2" />
+    </g>
+
+    <!-- কার্টুন গাছ ও সূর্যমুখী -->
+    <circle cx="95" cy="360" r="28" fill="#43a047" />
+    <circle cx="270" cy="370" r="24" fill="#43a047" />
+    <circle cx="750" cy="350" r="26" fill="#43a047" />
+    <circle cx="925" cy="365" r="30" fill="#43a047" />
+
+    <!-- ৭. বন্ধুদের কেক কাটার দৃশ্য (Friends Gathering & Cake Cutting) -->
+    <g class="celebration__group" transform="translate(0, 10)">
+      
+      <!-- কেক টেবিল -->
+      <ellipse cx="500" cy="495" rx="90" ry="24" fill="#5d4037" />
+      <path d="M420,490 L440,560 L455,560 L440,495 M580,490 L560,560 L545,560 L560,495" stroke="#3e2723" stroke-width="5" />
+      <!-- টেবিলক্লথ -->
+      <ellipse cx="500" cy="485" rx="80" ry="18" fill="#ffffff" stroke="#e0e0e0" stroke-width="2" />
+
+      <!-- ২-লেয়ারের বার্থডে কেক -->
+      <rect x="470" y="445" width="60" height="25" rx="5" fill="#e91e63" />
+      <rect x="480" y="425" width="40" height="22" rx="4" fill="#ffd54f" />
+      <!-- কেকের ক্রিম ডেকোরেশন -->
+      <path d="M470,450 Q485,456 500,450 Q515,456 530,450" fill="none" stroke="#fff" stroke-width="3" />
+      <!-- মোমবাতি ও শিখা -->
+      <rect x="498" y="410" width="4" height="15" fill="#03a9f4" />
+      <path class="cake__flame" d="M500,396 Q504,404 500,408 Q496,404 500,396 Z" fill="#ffeb3b" />
+
+      <!-- বন্ধু ১ (বাম পাশের বন্ধু - বেলুন হাতে হাততালি দিচ্ছে) -->
+      <g class="friend friend--left">
+        <!-- বেলুন -->
+        <g class="balloons">
+          <line x1="380" y1="420" x2="360" y2="330" stroke="#757575" stroke-width="1.2" />
+          <line x1="380" y1="420" x2="385" y2="320" stroke="#757575" stroke-width="1.2" />
+          <ellipse cx="355" cy="315" rx="16" ry="22" fill="#e91e63" />
+          <ellipse cx="385" cy="305" rx="17" ry="23" fill="#ffeb3b" />
+        </g>
+        <!-- শরীর ও জামা -->
+        <rect x="365" y="440" width="30" height="50" rx="12" fill="#3f51b5" />
+        <!-- মুখ ও মাথা -->
+        <circle cx="380" cy="415" r="16" fill="#ffccbc" />
+        <!-- চুল -->
+        <path d="M366,410 Q380,392 394,410 Z" fill="#3e2723" />
+        <!-- হাততালি দেওয়ার হাত -->
+        <path class="arm-clap-left" d="M370,445 Q390,435 405,438" fill="none" stroke="#ffccbc" stroke-width="6" stroke-linecap="round" />
+        <!-- পার্টি হ্যাট -->
+        <polygon points="372,402 380,380 388,402" fill="#00e676" />
+      </g>
+
+      <!-- বন্ধু ২ (মাঝখানের জন্মদিনের বন্ধু - কেক কাটছে) -->
+      <g class="friend friend--center">
+        <!-- শরীর -->
+        <rect x="485" y="435" width="30" height="55" rx="12" fill="#ff5722" />
+        <!-- মুখ -->
+        <circle cx="500" cy="405" r="17" fill="#ffe0b2" />
+        <!-- চুল -->
+        <path d="M485,400 Q500,380 515,400 Z" fill="#212121" />
+        <!-- বড় পার্টি হ্যাট -->
+        <polygon points="491,390 500,360 509,390" fill="#ffd600" stroke="#ff6d00" stroke-width="1.5" />
+        <!-- ছুরি হাতে কেক কাটার পোজ -->
+        <path class="cutting-arm" d="M510,440 L518,452 L498,460" fill="none" stroke="#ffe0b2" stroke-width="6" stroke-linecap="round" />
+        <rect x="490" y="456" width="12" height="4" fill="#9e9e9e" rx="1" />
+      </g>
+
+      <!-- বন্ধু ৩ (ডান পাশের বন্ধু - হাত তুলে উল্লাস করছে) -->
+      <g class="friend friend--right">
+        <!-- শরীর -->
+        <rect x="605" y="440" width="30" height="50" rx="12" fill="#4caf50" />
+        <!-- মুখ -->
+        <circle cx="620" cy="415" r="16" fill="#ffd8a8" />
+        <!-- চুল -->
+        <path d="M606,410 Q620,392 634,410 Z" fill="#4e342e" />
+        <!-- তোলা হাত (Cheering Arm) -->
+        <path class="cheering-arm" d="M630,445 Q645,415 640,395" fill="none" stroke="#ffd8a8" stroke-width="6" stroke-linecap="round" />
+        <!-- পার্টি হ্যাট -->
+        <polygon points="612,402 620,380 628,402" fill="#e91e63" />
+      </g>
+
+    </g>
+  </svg>
+
+  <!-- টেক্সট ও উইশ টাইপোগ্রাফি (উপরে সুন্দর ব্যালেন্সে) -->
+  <div class="camera cartoon__camera" id="camera">
+    <p class="kEyebrow" id="kEyebrow">✦ A Brand New Chapter Begins ✦</p>
+    <h2 class="headline" id="headline">
+      <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine1">Happy</span></span></span>
+      <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine2">Birthday</span></span></span>
+    </h2>
+    <svg class="uline" id="uline" viewBox="0 0 300 26" fill="none" aria-hidden="true">
+      <path class="uline__path" d="M8 16C56 7 132 4 178 6c30 1 78 5 114 12-40 3-108 4-176 3"
+            stroke="#ff6f00" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <p class="kSub" id="kSub">May your life be full of vibrant colors & smiles! 🎨✨</p>
+  </div>
+
+  <div class="bar bar--top" id="barTop"></div>
+  <div class="bar bar--bot" id="barBot"></div>
+</div>
+
+    <!-- The gold light that bridges the rose wish into the dawn of the tree. -->
+    <div class="bloom" id="bloom" aria-hidden="true"></div>
+
+    <!-- ACT 4 — THE HAND-LETTERED WISH (over the tree) ------------------------ -->
+    <!-- <div class="wish" id="wish" aria-hidden="true">
+      <p class="wish__eyebrow" id="wEyebrow">and&hellip; make it count</p>
+      <div class="wish__heroWrap"><h1 class="wish__hero" id="wHero">Happy Birthday</h1></div>
+      <span class="wish__rule" id="wRule"></span>
+      <p class="wish__sub" id="wSub">here&rsquo;s to a year that blooms</p>
+    </div> -->
+
+    <!-- ACT 4 — Elegant Balanced Designer Wish Layout -->
+<div class="wish" id="wish" aria-hidden="true">
+  <p class="wish__eyebrow" id="wEyebrow">leaving 24 behind, blooming into 25&hellip;</p>
+  <div class="wish__heroWrap">
+    <h1 class="wish__hero" id="wHero">Happy Birthday</h1>
+    <h2 class="wish__name" id="wName">Sauvik</h2> <!-- এখানে আপনার বন্ধুর নাম দিন -->
+  </div>
+  <span class="wish__rule" id="wRule"></span>
+  <p class="wish__sub" id="wSub">May your life stay as golden as these flowers 💛</p>
+</div>
+
+
+
+  
+
+    <!-- Play the film again once it has settled. -->
+    <button class="replay" id="replay" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15">
+        <path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z" fill="currentColor" />
+      </svg>
+      Again
+    </button>
+
+    <!-- One lens over the whole film: vignette + fine grain. -->
+    <div class="grade" aria-hidden="true">
+      <div class="grade__vignette"></div>
+      <div class="grade__grain"></div>
+    </div>
+  </main>
+
+  <!-- Accessible equivalent for reduced-motion + screen readers. -->
+  <p class="sr-only">Happy Birthday. Here&rsquo;s to a wonderful year ahead.</p>
+
+  <script type="module" src="./birthday.js"></script>
+</body>
+</html>

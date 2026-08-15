@@ -38,7 +38,7 @@
       text-shadow: 0 1px 4px rgba(255,255,255,0.8);
     }
 
-    /* সূর্যমুখী ডুও */
+    /* ২৪ ও ২৫ সূর্যমুখীর রোস্টার */
     .sunflower-duo {
       display: flex; align-items: center; justify-content: center;
       gap: clamp(20px, 6vw, 60px);
@@ -56,46 +56,65 @@
       filter: drop-shadow(0 10px 20px rgba(180, 80, 20, 0.25));
     }
 
-    /* ২৪ এর মন খারাপ ও হালকা মাথা নোয়ানো অ্যানিমেশন */
+    /* ২৪-এর বিষণ্ণ ভাব ও মৃদু কম্পন */
     .flower-24 {
       animation: sadFloat 3s ease-in-out infinite alternate;
     }
     @keyframes sadFloat {
-      0% { transform: translateY(0) rotate(-6deg); }
-      100% { transform: translateY(6px) rotate(-10deg); }
+      0% { transform: translateY(0) rotate(-4deg); }
+      100% { transform: translateY(6px) rotate(-6deg); }
     }
 
-    /* চোখের জলের ফোঁটা পড়ার অ্যানিমেশন */
+    /* চোখের জলের অ্যানিমেশন */
     .tear-drop {
-      animation: tearFall 1.8s ease-in infinite;
-      transform-origin: center;
+      animation: tearFall 1.6s ease-in infinite;
+    }
+    .tear-drop-2 {
+      animation: tearFall 1.6s ease-in 0.8s infinite;
     }
     @keyframes tearFall {
-      0% { opacity: 0; transform: translateY(-4px) scale(0.5); }
-      30% { opacity: 1; transform: translateY(2px) scale(1); }
-      80% { opacity: 0.9; transform: translateY(18px) scale(1); }
-      100% { opacity: 0; transform: translateY(24px) scale(0.4); }
+      0% {
+        transform: translateY(0) scale(0.6);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+        transform: translateY(4px) scale(1);
+      }
+      80% {
+        opacity: 0.9;
+        transform: translateY(28px) scale(1.1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(36px) scale(0.3);
+      }
     }
 
-    /* ২৫ এর হাত নাড়া (Bye Bye 24) অ্যানিমেশন */
+    /* ২৫-এর আনন্দ ও হাত নাড়া */
     .flower-25 {
-      animation: happyFloat 2.6s ease-in-out infinite alternate;
+      animation: happyBounce 2.5s ease-in-out infinite alternate;
     }
+    .glow-pulse {
+      animation: pulseGlow 1.8s ease-in-out infinite alternate;
+    }
+    @keyframes happyBounce {
+      0% { transform: translateY(0) rotate(2deg) scale(1.05); }
+      100% { transform: translateY(-10px) rotate(-2deg) scale(1.1); }
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 10px #ffb300); }
+      100% { filter: drop-shadow(0 0 24px #ff6f00); }
+    }
+
+    /* ২৫-এর হাত নাড়ার অ্যানিমেশন */
     .waving-arm-25 {
       transform-origin: 36px 12px;
-      animation: waveBye25 1s ease-in-out infinite alternate;
+      animation: waveBye 1s ease-in-out infinite alternate;
     }
-    @keyframes waveBye25 {
-      0% { transform: rotate(-5deg); }
-      100% { transform: rotate(32deg); }
-    }
-    @keyframes happyFloat {
-      0% { transform: translateY(0) rotate(2deg) scale(1.05); }
-      100% { transform: translateY(-8px) rotate(-2deg) scale(1.08); }
-    }
-
-    .glow-pulse {
-      filter: drop-shadow(0 0 16px rgba(255, 179, 0, 0.7));
+    @keyframes waveBye {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(30deg); }
     }
 
     .bubble {
@@ -107,12 +126,12 @@
       margin-bottom: 8px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
-    .bubble--sad {
+    .bubble-sad {
       color: #6d4c41;
-      border-color: #d7ccc8;
+      border-color: #bcaaa4;
     }
 
-    /* কাউন্টডাউন টাইমার */
+    /* কাউন্টডাউন ক্লক */
     .countdown-grid {
       display: flex; gap: clamp(10px, 3vw, 24px);
       margin-bottom: 25px;
@@ -166,73 +185,84 @@
     <h1 class="title">🌻 Counting Down to Sauvik’s Special Day 🌻</h1>
 
     <div class="sunflower-duo">
-      <!-- ২৪ সূর্যমুখী (মন খারাপ / Sad Look) -->
+      <!-- ২৪ সূর্যমুখী (মন খারাপ ও চোখের জল পড়ছে) -->
       <div class="flower-wrap flower-24">
-        <div class="bubble bubble--sad">Leaving soon... 🥺</div>
-        <svg class="flower-svg" viewBox="0 0 160 160">
-          <g transform="translate(80,80)">
-            <!-- ব্যাক পাপড়ি -->
-            <g fill="#f57f17">
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(0)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(30)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(60)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(90)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(120)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(150)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(180)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(210)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(240)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(270)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(300)" />
-              <path d="M0,-62 Q10,-32 0,-14 Q-10,-32 0,-62" transform="rotate(330)" />
+        <div class="bubble bubble-sad">Don't wanna go... 🥺</div>
+        <svg class="flower-svg" viewBox="0 0 180 180" style="overflow: visible;">
+          <g transform="translate(90,90)">
+            
+            <!-- পাপড়ি স্তর -->
+            <g fill="#ffa000" opacity="0.85">
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(0)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(30)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(60)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(90)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(120)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(150)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(180)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(210)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(240)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(270)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(300)" />
+              <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(330)" />
+            </g>
+            
+            <g fill="#ffca28">
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(15)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(45)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(75)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(105)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(135)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(165)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(195)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(225)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(255)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(285)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(315)" />
+              <path d="M0,-58 Q10,-30 0,-12 Q-10,-30 0,-58" transform="rotate(345)" />
             </g>
 
-            <!-- ফ্রন্ট পাপড়ি -->
-            <g fill="#ffa000">
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(15)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(45)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(75)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(105)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(135)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(165)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(195)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(225)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(255)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(285)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(315)" />
-              <path d="M0,-58 Q8,-28 0,-12 Q-8,-28 0,-58" transform="rotate(345)" />
-            </g>
+            <!-- সেন্টার কোর -->
+            <circle r="36" fill="#4e2619" stroke="#ffb300" stroke-width="2" />
+            
+            <!-- বিষণ্ণ চোখ (Sad Eyes) -->
+            <ellipse cx="-13" cy="-14" rx="3.5" ry="5" fill="#ffffff" />
+            <circle cx="-13" cy="-13" r="2.2" fill="#212121" />
+            
+            <ellipse cx="13" cy="-14" rx="3.5" ry="5" fill="#ffffff" />
+            <circle cx="13" cy="-13" r="2.2" fill="#212121" />
+            
+            <!-- বিষণ্ণ বাঁকা ভুরু -->
+            <path d="M-19,-21 Q-13,-24 -7,-20" fill="none" stroke="#ffe082" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M7,-20 Q13,-24 19,-21" fill="none" stroke="#ffe082" stroke-width="1.6" stroke-linecap="round" />
 
-            <!-- গোল ডিস্ক -->
-            <circle r="36" fill="#3e2723" stroke="#ffb300" stroke-width="2" />
+            <!-- মন খারাপের উল্টো মুখ (Sad Mouth) -->
+            <path d="M-7,-4 Q0,-9 7,-4" fill="none" stroke="#ffe082" stroke-width="2" stroke-linecap="round" />
 
-            <!-- মন খারাপের ভ্রু / চোখ -->
-            <path d="M-16,-12 Q-10,-18 -4,-13" fill="none" stroke="#ffe082" stroke-width="2" stroke-linecap="round" />
-            <path d="M16,-12 Q10,-18 4,-13" fill="none" stroke="#ffe082" stroke-width="2" stroke-linecap="round" />
-
-            <!-- চোখের জল (Tear Drop) -->
-            <path class="tear-drop" d="M14,-6 C14,-6 18,-1 18,2 C18,4.5 16,6.5 14,6.5 C12,6.5 10,4.5 10,2 C10,-1 14,-6 14,-6 Z" fill="#4fc3f7" />
+            <!-- চোখের জল পড়ার অ্যানিমেশন (Tears Falling) -->
+            <path class="tear-drop" d="M-13,-8 Q-10,-3 -13,1 Q-16,-3 -13,-8 Z" fill="#29b6f6" />
+            <path class="tear-drop-2" d="M13,-8 Q16,-3 13,1 Q10,-3 13,-8 Z" fill="#29b6f6" />
 
             <!-- ২৪ টেক্সট -->
-            <text y="14" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="28" fill="#ffd54f">24</text>
+            <text y="24" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="25" fill="#ffd54f">24</text>
           </g>
         </svg>
       </div>
 
-      <!-- ২৫ সূর্যমুখী (হাত নেড়ে ২৪-কে বিদায় জানাচ্ছে) -->
+      <!-- ২৫ সূর্যমুখী (হাসছে এবং হাত নেড়ে বাই-বাই জানাচ্ছে) -->
       <div class="flower-wrap flower-25">
-        <div class="bubble">Bye Bye 24! 👋</div>
+        <div class="bubble">Bye Bye 24! Hello 25! 👋✨</div>
         <svg class="flower-svg glow-pulse" viewBox="0 0 180 180" style="overflow: visible;">
           <g transform="translate(90,90)">
             
-            <!-- ২৫ এর হাত (ডানপাশ থেকে উঠে ২৪-এর দিকে হাত নাড়ছে) -->
+            <!-- ডানপাশের হাত নাড়া (Waving Arm) -->
             <g class="waving-arm-25">
-              <path d="M34,10 C52,6 68,-8 64,-34" fill="none" stroke="#2e7d32" stroke-width="7" stroke-linecap="round" />
-              <ellipse cx="64" cy="-36" rx="9" ry="14" fill="#4caf50" transform="rotate(20 64 -36)" />
-              <ellipse cx="56" cy="-33" rx="4" ry="7" fill="#4caf50" transform="rotate(-35 56 -33)" />
+              <path d="M36,12 C55,10 72,-5 68,-32" fill="none" stroke="#388e3c" stroke-width="7" stroke-linecap="round" />
+              <ellipse cx="68" cy="-35" rx="9" ry="14" fill="#4caf50" transform="rotate(20 68 -35)" />
+              <ellipse cx="60" cy="-32" rx="4" ry="7" fill="#4caf50" transform="rotate(-35 60 -32)" />
             </g>
 
-            <!-- উজ্জ্বল পাপড়ি স্তর ১ -->
+            <!-- পাপড়ি স্তর -->
             <g fill="#ffb300">
               <path d="M0,-68 Q14,-35 0,-15 Q-14,-35 0,-68" transform="rotate(22)" />
               <path d="M0,-68 Q14,-35 0,-15 Q-14,-35 0,-68" transform="rotate(67)" />
@@ -243,8 +273,6 @@
               <path d="M0,-68 Q14,-35 0,-15 Q-14,-35 0,-68" transform="rotate(292)" />
               <path d="M0,-68 Q14,-35 0,-15 Q-14,-35 0,-68" transform="rotate(337)" />
             </g>
-
-            <!-- উজ্জ্বল পাপড়ি স্তর ২ -->
             <g fill="#ffd54f">
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(0)" />
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(45)" />
@@ -256,9 +284,20 @@
               <path d="M0,-65 Q12,-35 0,-15 Q-12,-35 0,-65" transform="rotate(315)" />
             </g>
 
-            <!-- সেন্টার কোর ও ২৫ টেক্সট -->
+            <!-- সেন্টার কোর -->
             <circle r="36" fill="#3e1f14" stroke="#fff9c4" stroke-width="2.5" />
-            <text y="11" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="#fff59d">25</text>
+
+            <!-- মিষ্টি হাসিখুশি চোখ (Happy Curved Eyes) -->
+            <path d="M-17,-13 Q-12,-19 -7,-13" fill="none" stroke="#fff59d" stroke-width="2.6" stroke-linecap="round" />
+            <path d="M7,-13 Q12,-19 17,-13" fill="none" stroke="#fff59d" stroke-width="2.6" stroke-linecap="round" />
+
+            <!-- মিষ্টি হাসির মুখ (Smiling Mouth with Blush) -->
+            <path d="M-9,-6 Q0,3 9,-6" fill="none" stroke="#fff59d" stroke-width="2.6" stroke-linecap="round" />
+            <circle cx="-14" cy="-5" r="3" fill="#ff7043" opacity="0.75" />
+            <circle cx="14" cy="-5" r="3" fill="#ff7043" opacity="0.75" />
+
+            <!-- ২৫ টেক্সট -->
+            <text y="24" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="25" fill="#fff59d">25</text>
           </g>
         </svg>
       </div>

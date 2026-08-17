@@ -4,13 +4,15 @@
 
 // ১৭ আগস্ট ২০২৬, ১২:০০ AM (রাত ১২টা)
 const targetDate = new Date('August 17, 2026 00:00:00').getTime();
+let timerInterval = null;
 
 function updateCountdown() {
   const now = new Date().getTime();
   const diff = targetDate - now;
 
   if (diff <= 0) {
-    window.location.href = './birthday.html';
+    if (timerInterval) clearInterval(timerInterval);
+    window.location.replace('./birthday.html'); // মসৃণ রিডাইরেক্ট
     return;
   }
 
@@ -19,13 +21,18 @@ function updateCountdown() {
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-  document.getElementById('d').textContent = String(days).padStart(2, '0');
-  document.getElementById('h').textContent = String(hours).padStart(2, '0');
-  document.getElementById('m').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('s').textContent = String(seconds).padStart(2, '0');
+  const dEl = document.getElementById('d');
+  const hEl = document.getElementById('h');
+  const mEl = document.getElementById('m');
+  const sEl = document.getElementById('s');
+
+  if (dEl) dEl.textContent = String(days).padStart(2, '0');
+  if (hEl) hEl.textContent = String(hours).padStart(2, '0');
+  if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+  if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
 }
 
-setInterval(updateCountdown, 1000);
+timerInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
 /* --- ক্যানভাসে সূর্যমুখী ফুল ও পাপড়ি ঝরে পড়ার অ্যানিমেশন --- */

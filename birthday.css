@@ -557,3 +557,10 @@ body {
   opacity: 0 !important;
   visibility: hidden !important;
 }
+.grade__grain {
+  position: absolute; inset: 0;
+  /* যদি grain.png ফাইল না থাকে তবে এটি কমেন্ট রাখুন */
+  /* background: url('/textures/grain.png') repeat; */
+  opacity: 0.05; 
+  mix-blend-mode: overlay;
+}

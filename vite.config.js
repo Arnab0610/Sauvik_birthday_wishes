@@ -1,5 +1,14 @@
-import { defineConfig } from 'vite'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/',
-})
+  base: './',
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        birthday: resolve(__dirname, 'birthday.html'),
+      },
+    },
+  },
+});

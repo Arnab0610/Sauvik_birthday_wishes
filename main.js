@@ -12,7 +12,7 @@ function updateCountdown() {
 
   if (diff <= 0) {
     if (timerInterval) clearInterval(timerInterval);
-    window.location.replace('./birthday.html'); // মসৃণ রিডাইরেক্ট
+    window.location.href = '/birthday.html'; // মসৃণ রিডাইরেক্ট
     return;
   }
 
